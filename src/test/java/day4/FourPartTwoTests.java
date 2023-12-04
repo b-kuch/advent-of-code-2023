@@ -1,13 +1,12 @@
-package four;
+package day4;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Stream;
 
-import static four.FourPartTwo.*;
-import static four.FourTests.Assert;
+import static day4.FourPartTwo.*;
+import static day4.FourTests.Assert;
 public class FourPartTwoTests {
     final List<Card> cards = Stream.of(
         "Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53",

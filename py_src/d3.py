@@ -1,6 +1,9 @@
 from itertools import chain, cycle
 from typing import Iterable, Iterator
 
+from py_src.util import load_file
+from util import input_file
+
 
 def part_one():
     data = load_data()
@@ -14,10 +17,8 @@ def part_two():
 
 def load_data():
     data = []
-    with open('../resources/input/in3', 'r') as f:
-        for line in f:
-            data.append(line[:-1])
-    return data
+    file_name = input_file('in3')
+    return load_file(data, file_name)
 
 
 def tripletwise(iterable: Iterable):

@@ -1,10 +1,10 @@
-package four;
+package day4;
 
 import java.util.HashMap;
 import java.util.List;
 
-import static four.Four.getPlayerWins;
-import static four.Four.loadCards;
+import static day4.Four.getPlayerWins;
+import static day4.Four.loadCards;
 
 public class FourPartTwo {
 

@@ -1,6 +1,8 @@
+from util import input_file
+
 data = []
 
-with open('../resources/input/in1', 'r') as f:
+with open(input_file('in1'), 'r') as f:
     for line in f:
         data.append(line)
 

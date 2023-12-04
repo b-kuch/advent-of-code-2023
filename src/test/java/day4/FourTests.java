@@ -1,10 +1,10 @@
-package four;
+package day4;
 
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static four.Four.*;
+import static day4.Four.*;
 
 public class FourTests {
     @Test
