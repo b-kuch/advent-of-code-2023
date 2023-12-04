@@ -6,7 +6,8 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import static day4.FourPartTwo.*;
-import static day4.FourTests.Assert;
+import static org.assertj.core.api.Assertions.assertThat;
+
 public class FourPartTwoTests {
     final List<Card> cards = Stream.of(
         "Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53",
@@ -19,15 +20,15 @@ public class FourPartTwoTests {
 
     @Test
     void testPlay() {
-        Assert.that(play(cards)).equalTo(30);
+        assertThat(play(cards)).isEqualTo(30);
     }
     @Test
     void testPartTwo() {
-        Assert.that(partTwo()).equalTo(0);
+        assertThat(partTwo()).isEqualTo(6283755);
     }
 
     @Test
     void playOneTest() {
-        Assert.that(playOne(cards.get(0))).equalTo(new Range(2, 5));
+        assertThat(playOne(cards.get(0))).isEqualTo(new Range(2, 5));
     }
 }

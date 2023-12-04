@@ -1,11 +1,14 @@
 package day4;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.HashMap;
 import java.util.List;
 
 import static day4.Four.getPlayerWins;
 import static day4.Four.loadCards;
 
+@Slf4j
 public class FourPartTwo {
 
     static int partTwo() {
@@ -20,7 +23,7 @@ public class FourPartTwo {
             cards) {
             allCards += 1 + extraCards.getOrDefault(card.id(), 0);
             var reward = playOne(card);
-            System.err.printf("Card %d won cards %d-%d%n", card.id(), reward.start(), reward.end());
+            log.info("Card {} won cards {}-{}", card.id(), reward.start(), reward.end());
             for (int i = reward.start(); i <= reward.end(); i++) {
                 extraCards.put(i, extraCards.getOrDefault(i, 0)+(extraCards.getOrDefault(card.id(), 0)+1));
             }
