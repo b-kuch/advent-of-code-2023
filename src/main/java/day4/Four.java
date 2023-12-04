@@ -1,12 +1,9 @@
 package day4;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import util.Files;
+
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Function;
 import java.util.regex.Pattern;
 
 
@@ -30,7 +27,7 @@ public class Four {
     }
 
     static List<Card> loadCards() {
-        return readFile("C:\\dev\\advent\\four\\in4", Four::mapCard);
+        return Files.readFile("in4", Four::mapCard);
     }
 
     private static final Pattern idPattern = Pattern.compile("\\d+(?=:)");
@@ -53,14 +50,6 @@ public class Four {
             .filter(s -> !s.isBlank())
             .map(Integer::valueOf).toList();
         return new Card(Integer.parseInt(cardId), winningNumbers, playerNumbers);
-    }
-
-    private static <T> List<T>  readFile(String fileName, Function<String, T> mapper) {
-        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
-            return br.lines().map(mapper).toList();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     static int getPrize(Card card) {
