@@ -1,6 +1,6 @@
 data = []
 
-with open('in1', 'r') as f:
+with open('../resources/input/in1', 'r') as f:
     for line in f:
         data.append(line)
 

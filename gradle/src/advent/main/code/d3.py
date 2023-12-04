@@ -14,7 +14,7 @@ def part_two():
 
 def load_data():
     data = []
-    with open('in3', 'r') as f:
+    with open('../resources/input/in3', 'r') as f:
         for line in f:
             data.append(line[:-1])
     return data

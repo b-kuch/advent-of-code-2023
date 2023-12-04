@@ -31,7 +31,7 @@ class Game:
 
 if __name__=='__main__':
     data = []
-    with open('in2', 'r') as f:
+    with open('../resources/input/in2', 'r') as f:
         for line in f:
             data.append(line)
 

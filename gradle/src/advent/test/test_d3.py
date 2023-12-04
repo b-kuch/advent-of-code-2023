@@ -1,4 +1,4 @@
-from d3 import find_gears, part_one, part_two, sum_gear_ratios, sum_part_numbers, find_symbols, tripletwise
+from ..main.code.d3 import find_gears, part_one, part_two, sum_gear_ratios, sum_part_numbers, find_symbols, tripletwise
 def test_find_gear_ratios():
     data = (
         '12...',
