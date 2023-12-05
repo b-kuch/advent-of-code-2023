@@ -1,10 +1,12 @@
 package day5;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 
 import java.util.List;
 
+import static day5.DayFive.solvePartTwo;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class DayFiveTest {
@@ -44,7 +46,18 @@ class DayFiveTest {
         assertThat(DayFive.solvePartOne("sample5")).isEqualTo(35);
     }
     @Test
-    void testProblem() {
-        assertThat(DayFive.solvePartOne("in5")).isEqualTo(35);
+    void testPartOne() {
+        assertThat(DayFive.solvePartOne("in5")).isEqualTo(662197086);
+    }
+
+    @Test
+    void solveSampleForPartTwo() {
+        assertThat(solvePartTwo("sample5")).isEqualTo(46);
+    }
+
+    @Disabled("SLOOOOOOW")
+    @Test
+    void testPartTwo() {
+        assertThat(solvePartTwo("in5")).isEqualTo(52510809);
     }
 }

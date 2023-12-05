@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/advent.main.iml" filepath="$PROJECT_DIR$/.idea/modules/advent.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/advent.test.iml" filepath="$PROJECT_DIR$/.idea/modules/advent.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.example.advent.main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.example.advent.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.example.advent.test.iml" filepath="$PROJECT_DIR$/.idea/modules/com.example.advent.test.iml" />
     </modules>
   </component>
 </project>
