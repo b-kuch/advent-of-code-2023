@@ -27,7 +27,7 @@ public class Four {
     }
 
     static List<Card> loadCards() {
-        return Files.readFile("in4", Four::mapCard);
+        return Files.readFileByLines("in4", Four::mapCard);
     }
 
     private static final Pattern idPattern = Pattern.compile("\\d+(?=:)");

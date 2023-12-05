@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.function.Function;
 
 public class Files {
-    public static <T> List<T> readFile(String fileName, Function<String, T> mapper) {
+    public static <T> List<T> readFileByLines(String fileName, Function<String, T> mapper) {
         ClassLoader classloader = Thread.currentThread().getContextClassLoader();
         InputStream inputStream = classloader.getResourceAsStream("input/" + fileName);
         InputStreamReader streamReader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
@@ -15,5 +15,9 @@ public class Files {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static String readFile(String fileName) {
+        return String.join("\n", readFileByLines(fileName, Function.identity()));
     }
 }
