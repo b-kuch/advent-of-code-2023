@@ -1,21 +1,21 @@
 package day6;
 
 public class Car {
-    private final int time;
+    private final long time;
 
-    public Car(int time) {
+    public Car(long time) {
         this.time = time;
     }
 
-    public static Car pumpingCarFor(int time) {
+    public static Car pumpingCarFor(long time) {
         return new Car(time);
     }
 
     public boolean canBeatRace(Race race) {
-        return maxTravelDistance(race.record() - time) > race.distance();
+        return maxTravelDistance(race.record() - time) > race.distance() && time < race.record();
     }
 
-    private int maxTravelDistance(int time) {
+    private long maxTravelDistance(long time) {
         var speed = this.time;
         return speed*time;
     }
@@ -27,7 +27,7 @@ public class Car {
         return false;
     }
 
-    int getTime() {
+    long getTime() {
         return time;
     }
 }

@@ -15,11 +15,11 @@ public class WinningCars {
     }
 
     public Car minPumpCar() {
-        var min = 0;
+        var min = 0L;
         var max = race.record();
 
         int i = 0;
-        while (max > min && i < 10) {
+        while (max > min && i < 50) {
             var curr = (max + min)/2;
             var car = pumpingCarFor(curr);
 
@@ -34,8 +34,8 @@ public class WinningCars {
         return linearCarSearch(min, max, 1);
     }
 
-    private Car linearCarSearch(int min, int max, int step) {
-        for (int i = min; i <= max; i+=step) {
+    private Car linearCarSearch(long min, long max, int step) {
+        for (long i = min; i <= max; i+=step) {
             var car = pumpingCarFor(i);
             if (car.canBeatRace(race))
                 return car;
@@ -48,7 +48,7 @@ public class WinningCars {
         var min = race.record();
 
         int i = 0;
-        while (max > min && i < 12) {
+        while (max > min && i < 50) {
             var curr = (max + min)/2;
             var car = pumpingCarFor(curr);
 
@@ -63,9 +63,9 @@ public class WinningCars {
         return linearCarSearch(max, min, -1);
     }
 
-    public int numberOfWinningRaces() {
+    public long numberOfWinningRaces() {
         var first = minPumpCar();
         var last = maxPumpCar();
-        return last.getTime() - first.getTime() + 1;
+        return last.getTime() - first.getTime() + 1L;
     }
 }

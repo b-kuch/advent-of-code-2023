@@ -2,6 +2,7 @@ package day6;
 
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
 import java.util.function.Function;
 
 import static day6.WinningCars.winningCars;
@@ -17,14 +18,14 @@ public class PartOne {
 
         var races = new Race[times.length];
         for (int i = 0; i < times.length; i++) {
-            races[i] = new Race(Integer.parseInt(times[i]), Integer.parseInt(distances[i]));
+            races[i] = new Race(Long.parseLong(times[i]), Long.parseLong(distances[i]));
         }
         return races;
     }
 
-    static int partOne(String fileName) {
+    static long partOne(String fileName) {
         var races = parseRaces(fileName);
-        AtomicInteger waysToWin = new AtomicInteger(1);
+        AtomicLong waysToWin = new AtomicLong(1);
 
         Arrays.stream(races).map(race -> winningCars(race).numberOfWinningRaces())
                 .forEach(integer -> waysToWin.updateAndGet(v -> v * integer));

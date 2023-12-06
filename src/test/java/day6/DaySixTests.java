@@ -67,5 +67,14 @@ public class DaySixTests {
         assertThat(partOne("in6")).isEqualTo(303600);
     }
 
+    @Test
+    void testPartTwoSample() {
+        assertThat(partOne("sample6.2")).isEqualTo(71503);
+    }
+
+    @Test
+    void testPartTwo() {
+        assertThat(partOne("in6.2")).isEqualTo(23654842L);
+    }
 
 }
