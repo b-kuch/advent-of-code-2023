@@ -1,4 +1,7 @@
 package day7;
 
-public record Bid(String hand, int value) {
+public record Bid(Hand hand, int value) {
+    Bid(String hand, int value) {
+        this(new Hand(hand), value);
+    }
 }

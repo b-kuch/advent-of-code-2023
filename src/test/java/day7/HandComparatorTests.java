@@ -125,9 +125,8 @@ class HandComparatorTests {
         assertThat(byCardComparator.compare(bid1, bid2)).isNegative();
     }
 
-
     private static Bid getBidByFigures(String hand) {
-        return ByCardComparator.bidByFigures(hand);
+        return new Bid(hand, 0);
     }
 
 }
