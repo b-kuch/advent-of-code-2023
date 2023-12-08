@@ -1,6 +1,7 @@
 package day7;
 
 import day7.partone.*;
+import day7.parttwo.*;
 
 import java.util.List;
 
@@ -29,13 +30,13 @@ public class ByCardComparator implements java.util.Comparator<Bid> {
 
     public static ByCardComparator withPartTwoRules() {
         return new ByCardComparator(List.of(
-                new FiveOfAKindComparator(),
-                new FourOfAKindComparator(),
-                new FullHouseComparator(),
-                new ThreeOfAKindComparator(),
-                new TwoPairComparator(),
-                new OnePairComparator(),
-                new HighHandComparator()
+                new JokerFiveOfAKindComparator(),
+                new JokerFourOfAKindComparator(),
+                new JokerFullHouseComparator(),
+                new JokerThreeOfAKindComparator(),
+                new JokerTwoPairComparator(),
+                new JokerOnePairComparator(),
+                new JokerHighHandComparator()
         ),
                 new SecondRuleComparator(ValueComparator.partTwoOrder()));
     }

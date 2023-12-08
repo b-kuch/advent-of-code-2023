@@ -9,8 +9,8 @@ class HandComparatorTests {
 
     @Test
     void testHighHandComparator() {
-        var ace = getBidByFigures("A2345");
-        var king = getBidByFigures("KQJT9");
+        var ace = HandHelper.getBidByFigures("A2345");
+        var king = HandHelper.getBidByFigures("KQJT9");
 
         assertAreEqual(ace, ace);
         assertAreEqual(king, king);
@@ -20,8 +20,8 @@ class HandComparatorTests {
 
     @Test
     void testOnePairComparatorWithDifferentPair() {
-        var aPair = getBidByFigures("22345");
-        var otherPair = getBidByFigures("22A34");
+        var aPair = HandHelper.getBidByFigures("22345");
+        var otherPair = HandHelper.getBidByFigures("22A34");
 
         assertAreEqual(otherPair, otherPair);
         assertFirstIsBigger(otherPair, aPair);
@@ -29,8 +29,8 @@ class HandComparatorTests {
     }
     @Test
     void testOnePairComparator() {
-        var aPair = getBidByFigures("22345");
-        var ace = getBidByFigures("A2345");
+        var aPair = HandHelper.getBidByFigures("22345");
+        var ace = HandHelper.getBidByFigures("A2345");
 
         assertAreEqual(aPair, aPair);
         assertFirstIsBigger(aPair, ace);
@@ -39,8 +39,8 @@ class HandComparatorTests {
 
     @Test
     void testTwoPairsComparator() {
-        var twoPairs = getBidByFigures("22334");
-        var aPair = getBidByFigures("22345");
+        var twoPairs = HandHelper.getBidByFigures("22334");
+        var aPair = HandHelper.getBidByFigures("22345");
 
         assertAreEqual(twoPairs, twoPairs);
         assertFirstIsBigger(twoPairs, aPair);
@@ -49,8 +49,8 @@ class HandComparatorTests {
 
     @Test
     void testThreeOfAKindComparator() {
-        var threeOfAKind = getBidByFigures("22234");
-        var twoPairs = getBidByFigures("AAKKQ");
+        var threeOfAKind = HandHelper.getBidByFigures("22234");
+        var twoPairs = HandHelper.getBidByFigures("AAKKQ");
 
         assertAreEqual(threeOfAKind, threeOfAKind);
         assertFirstIsBigger(threeOfAKind, twoPairs);
@@ -59,8 +59,8 @@ class HandComparatorTests {
 
     @Test
     void testFullHouseComparator() {
-        var fullHouse = getBidByFigures("22233");
-        var threeOfAKind = getBidByFigures("AAAKQ");
+        var fullHouse = HandHelper.getBidByFigures("22233");
+        var threeOfAKind = HandHelper.getBidByFigures("AAAKQ");
 
         assertAreEqual(fullHouse, fullHouse);
         assertFirstIsBigger(fullHouse, threeOfAKind);
@@ -69,8 +69,8 @@ class HandComparatorTests {
 
     @Test
     void testFourOfAKindComparator() {
-        var fourOfAKind = getBidByFigures("22223");
-        var fullHouse = getBidByFigures("AAAKK");
+        var fourOfAKind = HandHelper.getBidByFigures("22223");
+        var fullHouse = HandHelper.getBidByFigures("AAAKK");
 
         assertAreEqual(fullHouse, fullHouse);
         assertFirstIsBigger(fourOfAKind, fullHouse);
@@ -79,8 +79,8 @@ class HandComparatorTests {
 
     @Test
     void testFourOfAKindComparatorWithSameHandType() {
-        var strongerFourOfAKind = getBidByFigures("22224");
-        var fourOfAKind = getBidByFigures("22223");
+        var strongerFourOfAKind = HandHelper.getBidByFigures("22224");
+        var fourOfAKind = HandHelper.getBidByFigures("22223");
 
         assertAreEqual(strongerFourOfAKind, strongerFourOfAKind);
         assertFirstIsBigger(strongerFourOfAKind, fourOfAKind);
@@ -89,8 +89,8 @@ class HandComparatorTests {
 
     @Test
     void testFiveOfAKindComparator() {
-        var fiveOfAKind = getBidByFigures("22222");
-        var fourOfAKind = getBidByFigures("AAAAK");
+        var fiveOfAKind = HandHelper.getBidByFigures("22222");
+        var fourOfAKind = HandHelper.getBidByFigures("AAAAK");
 
         assertAreEqual(fiveOfAKind, fiveOfAKind);
         assertFirstIsBigger(fiveOfAKind, fourOfAKind);
@@ -99,16 +99,16 @@ class HandComparatorTests {
 
     @Test
     void testTwoPairsFromSample() {
-        var hand1 = getBidByFigures("KK677");
-        var hand2 = getBidByFigures("KTJJT");
+        var hand1 = HandHelper.getBidByFigures("KK677");
+        var hand2 = HandHelper.getBidByFigures("KTJJT");
 
         assertFirstIsBigger(hand1, hand2);
     }
 
     @Test
     void testFourOfAKindBug() {
-        var hand1 = getBidByFigures("QQQQ4");
-        var hand2 = getBidByFigures("7777A");
+        var hand1 = HandHelper.getBidByFigures("QQQQ4");
+        var hand2 = HandHelper.getBidByFigures("7777A");
 
         assertFirstIsBigger(hand1, hand2);
     }
@@ -124,9 +124,4 @@ class HandComparatorTests {
     private void assertFirstIsSmaller(Bid bid1, Bid bid2) {
         assertThat(byCardComparator.compare(bid1, bid2)).isNegative();
     }
-
-    private static Bid getBidByFigures(String hand) {
-        return new Bid(hand, 0);
-    }
-
 }

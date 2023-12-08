@@ -18,6 +18,21 @@ public class DaySeven {
         return result;
     }
 
+    static long partTwo(String fileName) {
+        var bids = Files.readFileByLines(fileName, DaySeven::parseBid)
+                .stream()
+                .sorted(ByCardComparator.withPartTwoRules())
+                .toList();
+
+        var result = 0L;
+        var i = 0;
+        for (var bid :
+                bids) {
+            result += getBidResult(bid, ++i);
+        }
+        return result;
+    }
+
     private static long getBidResult(Bid bid, int i) {
         return (long) bid.value() * i;
     }
