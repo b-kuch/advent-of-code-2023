@@ -1,4 +1,7 @@
-package day7;
+package day7.partone;
+
+import day7.Hand;
+import day7.HandTypeComparator;
 
 public class FullHouseComparator implements HandTypeComparator {
     @Override

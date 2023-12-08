@@ -1,4 +1,4 @@
-package day7;
+package day7.partone;
 
 public class FourOfAKindComparator extends OfAKindComparator {
 

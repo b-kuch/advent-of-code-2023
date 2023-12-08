@@ -12,6 +12,6 @@ public class DaySevenTests {
     }
     @Test
     void testPartOne() {
-        assertThat(partOne("in8")).isEqualTo(0L);
+        assertThat(partOne("in8")).isEqualTo(252052080L);
     }
 }

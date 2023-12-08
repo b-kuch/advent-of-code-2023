@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class HandComparatorTests {
-    ByCardComparator byCardComparator = new ByCardComparator();
+    ByCardComparator byCardComparator = ByCardComparator.withPartOneRules();
 
     @Test
     void testHighHandComparator() {

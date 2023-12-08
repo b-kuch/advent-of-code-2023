@@ -1,4 +1,4 @@
-package day7;
+package day7.partone;
 
 public class OnePairComparator extends OfAKindComparator {
     @Override

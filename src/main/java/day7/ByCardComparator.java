@@ -1,19 +1,46 @@
 package day7;
 
+import day7.partone.*;
+
 import java.util.List;
 
 public class ByCardComparator implements java.util.Comparator<Bid> {
-    private static final List<HandTypeComparator> handTypeComparators =
-            List.of(
-                    new FiveOfAKindComparator(),
-                    new FourOfAKindComparator(),
-                    new FullHouseComparator(),
-                    new ThreeOfAKindComparator(),
-                    new TwoPairComparator(),
-                    new OnePairComparator(),
-                    new HighHandComparator()
-            );
-    private final SecondRuleComparator secondRuleComparator = new SecondRuleComparator();
+    private List<HandTypeComparator> handTypeComparators;
+
+    private SecondRuleComparator secondRuleComparator;
+
+    public ByCardComparator(List<HandTypeComparator> comparators, SecondRuleComparator secondRuleComparator) {
+        this.handTypeComparators = comparators;
+        this.secondRuleComparator = secondRuleComparator;
+    }
+
+    public static ByCardComparator withPartOneRules() {
+        return new ByCardComparator(List.of(
+                new FiveOfAKindComparator(),
+                new FourOfAKindComparator(),
+                new FullHouseComparator(),
+                new ThreeOfAKindComparator(),
+                new TwoPairComparator(),
+                new OnePairComparator(),
+                new HighHandComparator()
+        ),
+                new SecondRuleComparator(ValueComparator.partOneOrder()));
+    }
+
+    public static ByCardComparator withPartTwoRules() {
+        return new ByCardComparator(List.of(
+                new FiveOfAKindComparator(),
+                new FourOfAKindComparator(),
+                new FullHouseComparator(),
+                new ThreeOfAKindComparator(),
+                new TwoPairComparator(),
+                new OnePairComparator(),
+                new HighHandComparator()
+        ),
+                new SecondRuleComparator(ValueComparator.partTwoOrder()));
+    }
+
+    private ByCardComparator() {}
 
     @Override
     public int compare(Bid bid1, Bid bid2) {

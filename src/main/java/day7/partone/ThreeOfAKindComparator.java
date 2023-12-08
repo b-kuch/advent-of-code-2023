@@ -1,6 +1,4 @@
-package day7;
-
-import java.util.HashMap;
+package day7.partone;
 
 public class ThreeOfAKindComparator extends OfAKindComparator {
 

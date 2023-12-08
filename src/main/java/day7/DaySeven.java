@@ -6,7 +6,7 @@ public class DaySeven {
     static long partOne(String fileName) {
         var bids = Files.readFileByLines(fileName, DaySeven::parseBid)
                 .stream()
-                .sorted(new ByCardComparator())
+                .sorted(ByCardComparator.withPartOneRules())
                 .toList();
 
         var result = 0L;
