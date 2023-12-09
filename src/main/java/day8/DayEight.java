@@ -34,6 +34,28 @@ public class DayEight {
         return steps;
     }
 
+    static long partTwo(String fileName) {
+        var data = Files.readFileByLines(fileName, Function.identity());
+        return new DayEight(data).solvePartTwo();
+    }
+
+    private long solvePartTwo() {
+        var navigators = navigationMap.keySet().stream()
+                .filter(room -> room.charAt(2) =='A')
+                .map(startRoom -> new GhostNavigator(directions, navigationMap, startRoom))
+                .toList();
+
+        var steps = 0L;
+        do {
+            steps++;
+        } while (navigators.stream().map(GhostNavigator::next).anyMatch(this::isNotExitRoom));
+        return steps;
+    }
+
+    private boolean isNotExitRoom(String room) {
+        return room.charAt(2) != 'Z';
+    }
+
     private static final Pattern numberRegex = Pattern.compile("\\w+");
     private void parseRoom(String input) {
         var matcher = numberRegex.matcher(input)
