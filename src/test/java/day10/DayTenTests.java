@@ -18,8 +18,8 @@ public class DayTenTests {
     }
 
     @Test
-    void testPartOn() {
-        assertThat(partOne("in10")).isEqualTo(0);
+    void testPartOne() {
+        assertThat(partOne("in10")).isEqualTo(6897);
     }
 
 }
