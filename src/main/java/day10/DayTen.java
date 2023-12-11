@@ -12,5 +12,11 @@ public class DayTen {
         return PartOne.solve(data);
     }
 
+    static int partTwo(String fileName) {
+        var data = Files.readFileByLines(fileName, Function.identity());
+
+        return PartTwo.solve(data);
+    }
+
 
 }
